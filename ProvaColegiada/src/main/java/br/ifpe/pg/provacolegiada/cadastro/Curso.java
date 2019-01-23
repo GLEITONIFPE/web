@@ -1,17 +1,11 @@
 package br.ifpe.pg.provacolegiada.cadastro;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
-import br.ifpe.pg.provacolegiada.provacolegiada.constants.ModalidadeEnum;
 
 @Entity
 public class Curso {
@@ -23,23 +17,16 @@ public class Curso {
 	private String nome;
 	@Min(value = 40)
 	private int cargaHoraria;
-	@Enumerated(EnumType.STRING)
-	private ModalidadeEnum modalidade;
-	@NotNull 
-	@OneToOne 
-	private Professor professor;
 
 	public Curso() {
 
 	}
 
-	public Curso(Integer id, String nome, int cargaHoraria, ModalidadeEnum modalidade, Professor professor) {
+	public Curso(Integer id, String nome, int cargaHoraria) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cargaHoraria = cargaHoraria;
-		this.modalidade = modalidade;
-		this.professor = professor;
 	}
 
 	public Integer getId() {
@@ -64,24 +51,6 @@ public class Curso {
 
 	public void setCargaHoraria(int cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
-	}
-	
-	
-
-	public ModalidadeEnum getModalidade() {
-		return modalidade;
-	}
-
-	public void setModalidade(ModalidadeEnum modalidade) {
-		this.modalidade = modalidade;
-	}
-
-	public Professor getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
 	}
 
 	@Override

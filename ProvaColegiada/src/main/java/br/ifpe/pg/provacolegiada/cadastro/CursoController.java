@@ -1,10 +1,9 @@
 package br.ifpe.pg.provacolegiada.cadastro;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,19 +16,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/cursos/")
+@Secured("ROLE_ADMIN")
 public class CursoController {
 
 	@Autowired
 	private CursoService service;
-	
-	@Autowired
-	private ProfessorService professorService;
 
 	@GetMapping("list")
 	public ModelAndView exibirLista(Curso curso) {
 		ModelAndView mv = new ModelAndView("cadastros/cursos-list");
-		List<Professor> professores = professorService.listarTodas();
-		mv.addObject("professores", professores);
 		mv.addObject("lista", service.listarTodos());
 		mv.addObject("curso", curso);
 		return mv;

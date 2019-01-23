@@ -12,17 +12,15 @@ public class Professor {
 	private Integer id;
 	private String nome;
 	private String email;
-	private String areasDePesquisa;
 	
 	public Professor() {
 		super();
 	}
-	public Professor(Integer id, String nome, String email,String areasDePesquisa) {
+	public Professor(Integer id, String nome, String email) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
-		this.areasDePesquisa = areasDePesquisa;
 	}
 	public Integer getId() {
 		return id;
@@ -42,13 +40,6 @@ public class Professor {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAreasDePesquisa() {
-		return areasDePesquisa;
-	}
-	public void setAreasDePesquisa(String areasDePesquisa) {
-		this.areasDePesquisa = areasDePesquisa;
-	}
-	
 	
 	
 }
